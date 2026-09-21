@@ -1,0 +1,57 @@
+[
+  {
+    "range": "1.13.x",
+    "pack_format": 4,
+    "modern": false
+  },
+  {
+    "range": "1.14.x",
+    "pack_format": 4,
+    "modern": false
+  },
+  {
+    "range": "1.15-1.16.1",
+    "pack_format": 5,
+    "modern": false
+  },
+  {
+    "range": "1.16.2-1.16.5",
+    "pack_format": 6,
+    "modern": false
+  },
+  {
+    "range": "1.17.x",
+    "pack_format": 7,
+    "modern": false
+  },
+  {
+    "range": "1.18-1.18.1",
+    "pack_format": 8,
+    "modern": false
+  },
+  {
+    "range": "1.18.2",
+    "pack_format": 9,
+    "modern": false
+  },
+  {
+    "range": "1.19-1.19.3",
+    "pack_format": 10,
+    "modern": false
+  },
+  {
+    "range": "1.19.4",
+    "pack_format": 12,
+    "modern": false
+  },
+  {
+    "range": "1.20-1.20.1",
+    "pack_format": 15,
+    "modern": false
+  },
+  {
+    "range": "1.20.2-26.3",
+    "pack_format": 18,
+    "modern": true
+  }
+]

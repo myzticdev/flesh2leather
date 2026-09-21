@@ -1,0 +1,79 @@
+{
+  "pack": {
+    "pack_format": 18,
+    "supported_formats": {
+      "min_inclusive": 18,
+      "max_inclusive": 81
+    },
+    "min_format": [
+      18,
+      0
+    ],
+    "max_format": [
+      121,
+      0
+    ],
+    "description": "Flesh2Leather by myzticdev - Smelt rotten flesh into leather."
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "overlay_1_20_5",
+        "formats": {
+          "min_inclusive": 41,
+          "max_inclusive": 47
+        },
+        "min_format": [
+          41,
+          0
+        ],
+        "max_format": [
+          47,
+          2147483647
+        ]
+      },
+      {
+        "directory": "overlay_1_21",
+        "formats": {
+          "min_inclusive": 48,
+          "max_inclusive": 56
+        },
+        "min_format": [
+          48,
+          0
+        ],
+        "max_format": [
+          56,
+          2147483647
+        ]
+      },
+      {
+        "directory": "overlay_1_21_2_plus",
+        "formats": {
+          "min_inclusive": 57,
+          "max_inclusive": 120
+        },
+        "min_format": [
+          57,
+          0
+        ],
+        "max_format": [
+          120,
+          2147483647
+        ]
+      },
+      {
+        "directory": "overlay_26_3",
+        "formats": 121,
+        "min_format": [
+          121,
+          0
+        ],
+        "max_format": [
+          121,
+          0
+        ]
+      }
+    ]
+  }
+}
