@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- Use the unnamespaced `smelting` recipe type required by Minecraft 1.13.
+- Validate the 1.13 serializer separately from 1.14, which shares pack format 4.
+
 ## [1.0.0] - 2026-09-21
 
 ### Added

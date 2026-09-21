@@ -61,6 +61,11 @@ Editable packs and `targets.json` live in `src/`; tooling lives in `scripts/`.
 
 Never edit `dist/` files. Edit source and rebuild.
 
+Run recipe-validation regression checks with
+`python -m unittest discover -s scripts -p "test_*.py"`. Both workflows run these
+checks before building. Minecraft 1.13 requires the plain `smelting` serializer;
+1.14 uses `minecraft:smelting` despite sharing pack format 4.
+
 ## Maintaining compatibility
 
 Before adding a release, check its official technical changelog and test the pack

@@ -53,7 +53,7 @@ def archive(files):
     return data
 
 
-def check_recipe(recipe, fmt, smoking):
+def check_recipe(recipe, fmt, smoking, legacy_1_13=False):
     expected = {
         'type': 'minecraft:smoking' if smoking else 'minecraft:smelting',
         'ingredient': 'minecraft:rotten_flesh' if fmt >= 57 else {'item': 'minecraft:rotten_flesh'},
@@ -61,6 +61,10 @@ def check_recipe(recipe, fmt, smoking):
         'experience': 0.35,
         'cookingtime': 100 if smoking and fmt < 121 else 200,
     }
+    # 1.13 uses plain serializer names; 1.14 shares format 4 but uses identifiers.
+    if legacy_1_13:
+        require(not smoking, 'Minecraft 1.13 does not support smokers')
+        expected['type'] = 'smelting'
     if 'category' in recipe:
         expected['category'] = 'misc'
     require(recipe == expected, f'Invalid recipe for format {fmt}')
@@ -86,7 +90,7 @@ def check_pack(files, target):
     expected = {'pack.mcmeta', 'README.txt'}
     paths = recipe_paths('', fmt, target['range'] != '1.13.x')
     for path, smoking in paths.items():
-        check_recipe(parse(files[path]), fmt, smoking)
+        check_recipe(parse(files[path]), fmt, smoking, target['range'] == '1.13.x')
     expected.update(paths)
     if target['modern']:
         require(fmt == 18, 'Modern pack must start at format 18')
