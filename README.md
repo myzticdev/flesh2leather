@@ -2,12 +2,64 @@
 
 ![Flesh2Leather icon](src/pack.png)
 
-A Minecraft Java datapack maintained by **myzticdev**. Cook **1 Rotten Flesh into
-1 Leather** in a furnace (10 seconds), or a smoker from 1.14 onward (5 seconds).
-Each recipe awards 0.35 experience. No resource pack, functions, tick loop, or
-other gameplay changes.
+**Cook 1 Rotten Flesh into 1 Leather** — a tiny vanilla Minecraft Java datapack by [myzticdev](https://mc.myztic.dev/).
+
+Furnace: 10 seconds · Smoker (Java 1.14+): 5 seconds · 0.35 XP  
+No resource pack. No functions. No tick loop. Nothing else changes.
+
+**Downloads & install notes:** [mc.myztic.dev/projects/flesh2leather](https://mc.myztic.dev/projects/flesh2leather/)
+
+---
+
+## Install
+
+1. Open the [project page](https://mc.myztic.dev/projects/flesh2leather/) and download the ZIP for your Minecraft Java version  
+   (or grab a file from [GitHub Releases](https://github.com/myzticdev/flesh2leather/releases)).
+2. Put that ZIP in your world’s `datapacks/` folder. **Install only one variant.**
+3. Reopen the world, or run `/reload` if you have permission.
+4. Confirm with `/datapack list enabled`, then cook rotten flesh with fuel.
+
+If you download the **All-Versions** bundle, extract it first and use **one** of the inner ZIPs — do not drop the master bundle into `datapacks/`.
+
+Something broken? [Open an issue](https://github.com/myzticdev/flesh2leather/issues) and include your Minecraft version.
+
+---
 
 ## Compatibility
+
+| Minecraft Java | Download |
+| --- | --- |
+| 1.20.2 – 26.3 | `Flesh2Leather-1.20.2-26.3.zip` |
+| 1.20 – 1.20.1 | `Flesh2Leather-1.20-1.20.1.zip` |
+| 1.19.4 | `Flesh2Leather-1.19.4.zip` |
+| 1.19 – 1.19.3 | `Flesh2Leather-1.19-1.19.3.zip` |
+| 1.18.2 | `Flesh2Leather-1.18.2.zip` |
+| 1.18 – 1.18.1 | `Flesh2Leather-1.18-1.18.1.zip` |
+| 1.17 – 1.17.1 | `Flesh2Leather-1.17.x.zip` |
+| 1.16.2 – 1.16.5 | `Flesh2Leather-1.16.2-1.16.5.zip` |
+| 1.15 – 1.16.1 | `Flesh2Leather-1.15-1.16.1.zip` |
+| 1.14 – 1.14.4 | `Flesh2Leather-1.14.x.zip` |
+| 1.13 – 1.13.2 | `Flesh2Leather-1.13.x.zip` (furnace only) |
+
+26.3 is the official version name (no `1.` prefix). Snapshots are not promised.  
+Prefer the [site download table](https://mc.myztic.dev/projects/flesh2leather/#downloads) if you just want the right file quickly.
+
+Pack format notes and validation details for maintainers are below.
+
+---
+
+## Links
+
+- **Website:** [mc.myztic.dev](https://mc.myztic.dev/) · [Flesh2Leather](https://mc.myztic.dev/projects/flesh2leather/)
+- **Releases:** [github.com/myzticdev/flesh2leather/releases](https://github.com/myzticdev/flesh2leather/releases)
+- **Issues:** [github.com/myzticdev/flesh2leather/issues](https://github.com/myzticdev/flesh2leather/issues)
+- **Org:** [github.com/myzticdev](https://github.com/myzticdev)
+
+---
+
+## For pack maintainers
+
+### Compatibility detail
 
 | Download suffix | Java versions | Data pack format |
 | --- | --- | --- |
@@ -23,25 +75,9 @@ other gameplay changes.
 | `1.20-1.20.1` | 1.20–1.20.1 | 15 |
 | `1.20.2-26.3` | 1.20.2–26.3 | 18–121.0 |
 
-26.3 is the official version name, without a `1.` prefix. Snapshot support is
-not promised. Validation checks JSON, metadata, recipe schemas, effective overlay
-selection, and archive structure. Manual furnace and smoker checks have been
-reported successful on representative releases through 26.3, including the modern
-overlay transitions. This is not an exhaustive test of every supported patch or
-modded environment; automated validation does not run Minecraft gameplay tests.
+Validation checks JSON, metadata, recipe schemas, effective overlay selection, and archive structure. Manual furnace and smoker checks have been reported successful on representative releases through 26.3, including the modern overlay transitions. This is not an exhaustive test of every supported patch or modded environment; automated validation does not run Minecraft gameplay tests.
 
-## Install
-
-1. Download the matching `Flesh2Leather-<range>.zip` from
-   [Releases](https://github.com/myzticdev/flesh2leather/releases).
-2. Place that ZIP in your world's `datapacks/` folder. Install only one variant.
-3. Reopen the world or run `/reload` with appropriate permissions.
-4. Check `/datapack list enabled`, then cook rotten flesh with fuel.
-
-If using the all-versions bundle, extract it first and choose one inner ZIP.
-Do not install the master bundle itself.
-
-## Build
+### Build
 
 Requires Python 3.11 or newer; no third-party packages. From the repository root:
 
@@ -72,7 +108,7 @@ Run recipe-validation regression checks with
 checks before building. Minecraft 1.13 requires the plain `smelting` serializer;
 1.14 uses `minecraft:smelting` despite sharing pack format 4.
 
-## Maintaining compatibility
+### Maintaining compatibility
 
 Before adding a release, check its official technical changelog and test the pack
 in that version: enable/reload without recipe errors, then verify one leather per
@@ -99,7 +135,7 @@ Technical references: [multi-version packs](https://www.minecraft.net/en-us/arti
 [pack metadata](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-9),
 [26.3 cooking recipes](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-3).
 
-## Release
+### Release
 
 Pushes and pull requests run `.github/workflows/ci.yml` and retain build artifacts.
 After validation and in-game checks, add a dated `CHANGELOG.md` entry, commit the
