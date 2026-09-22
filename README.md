@@ -25,8 +25,10 @@ other gameplay changes.
 
 26.3 is the official version name, without a `1.` prefix. Snapshot support is
 not promised. Validation checks JSON, metadata, recipe schemas, effective overlay
-selection, and archive structure. In-game testing across these releases is still
-pending; schema validation alone does not establish tested gameplay compatibility.
+selection, and archive structure. Manual furnace and smoker checks have been
+reported successful on representative releases through 26.3, including the modern
+overlay transitions. This is not an exhaustive test of every supported patch or
+modded environment; automated validation does not run Minecraft gameplay tests.
 
 ## Install
 
