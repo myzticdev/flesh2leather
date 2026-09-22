@@ -1,5 +1,7 @@
 # Flesh2Leather
 
+![Flesh2Leather icon](src/pack.png)
+
 A Minecraft Java datapack maintained by **myzticdev**. Cook **1 Rotten Flesh into
 1 Leather** in a furnace (10 seconds), or a smoker from 1.14 onward (5 seconds).
 Each recipe awards 0.35 experience. No resource pack, functions, tick loop, or
@@ -53,6 +55,8 @@ and exact contents. Validation errors exit nonzero. ZIPs use uncompressed entrie
 for identical output across platforms and compression-library versions.
 
 Editable packs and `targets.json` live in `src/`; tooling lives in `scripts/`.
+The shared project icon is `src/pack.png`. Every datapack ZIP includes it at
+the archive root as `pack.png`; use this same image for project listings.
 `dist/` is ignored by Git and contains only these reproducible outputs:
 
 - Eleven `Flesh2Leather-<range>.zip` files matching the table above.

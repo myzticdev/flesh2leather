@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- Shared Flesh2Leather project icon, included as `pack.png` in every datapack ZIP.
+
 ### Fixed
 - Use the unnamespaced `smelting` recipe type required by Minecraft 1.13.
 - Validate the 1.13 serializer separately from 1.14, which shares pack format 4.

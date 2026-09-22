@@ -87,7 +87,7 @@ def check_pack(files, target):
     require(pack['pack_format'] == fmt, 'Target and metadata format mismatch')
     require(pack['description'] == 'Flesh2Leather by myzticdev - Smelt rotten flesh into leather.',
             'Unexpected description')
-    expected = {'pack.mcmeta', 'README.txt'}
+    expected = {'pack.mcmeta', 'pack.png', 'README.txt'}
     paths = recipe_paths('', fmt, target['range'] != '1.13.x')
     for path, smoking in paths.items():
         check_recipe(parse(files[path]), fmt, smoking, target['range'] == '1.13.x')
@@ -140,12 +140,18 @@ def build():
     require(len(names) == len(set(names)), 'Duplicate release targets')
     require(all(re.match(r'^[0-9.x-]+\Z', name) for name in names), 'Unsafe target path')
     require(sum(target['modern'] is True for target in targets) == 1, 'Exactly one modern release required')
-    require({path.name for path in SRC.iterdir()} == set(names) | {'targets.json'}, 'Unlisted source content')
+    require({path.name for path in SRC.iterdir()} == set(names) | {'targets.json', 'pack.png'},
+            'Unlisted source content')
+    icon_path = SRC / 'pack.png'
+    require(not icon_path.is_symlink() and icon_path.resolve() == icon_path, 'Unsafe icon path')
+    icon = icon_path.read_bytes()
+    require(icon.startswith(b'\x89PNG\r\n\x1a\n') and icon[12:16] == b'IHDR',
+            'Pack icon must be a PNG image')
     releases = {}
     for target in targets:
         source = SRC / target['range']
         require(not source.is_symlink() and source.resolve() == source, 'Unsafe source path')
-        files = {}
+        files = {'pack.png': icon}
         for path in sorted(source.rglob('*')):
             require(not path.is_symlink(), f'Source links are not supported: {path.name}')
             if path.is_file():
